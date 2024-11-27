@@ -19,9 +19,42 @@
 - Ultralytics YOLO
 
 ```bash
+# 基础依赖
+pip install torch torchvision
+pip install transformers
+pip install pillow
 pip install opencv-python
 pip install ultralytics
-pip install imageio
+pip install tqdm
+pip install ffmpeg-python
+
+# 如果下载速度慢，可以使用清华源：
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torch torchvision
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple transformers pillow opencv-python ultralytics tqdm ffmpeg-python
+```
+
+### FFmpeg 安装
+
+#### Windows:
+1. 访问 https://www.ffmpeg.org/download.html
+2. 下载 Windows 版本（选择 Windows builds）
+3. 解压下载的文件到指定目录（如 `C:\ffmpeg`）
+4. 添加环境变量：
+   - 右键"此电脑" → 属性 → 高级系统设置 → 环境变量
+   - 在"系统变量"中找到 Path
+   - 点击"编辑" → "新建"
+   - 添加 FFmpeg 的 bin 目录路径（如 `C:\ffmpeg\bin`）
+5. 验证安装：打开新的命令行窗口，输入 `ffmpeg -version`
+
+#### Linux:
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+#### Mac:
+```bash
+brew install ffmpeg
 ```
 
 ## 📁 项目结构
@@ -63,6 +96,12 @@ pip install ultralytics opencv-python imageio
 ```bash
 python main.py
 ```
+
+4. 运行视频分析脚本
+```
+HF_ENDPOINT=https://hf-mirror.com python emotion.py
+```
+感谢：https://hf-mirror.com/ 提供的代理！
 
 ## 💡 工作原理
 
