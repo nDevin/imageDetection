@@ -2,10 +2,10 @@ import cv2
 from ultralytics import YOLO
 
 # 加载模型
-model = YOLO("yolo11s.pt")  # 或者使用 yolov8s.pt, yolov8m.pt 等
+model = YOLO("models/yolo11s.pt")  # 或者使用 yolov8s.pt, yolov8m.pt 等
 
 # 打开视频文件
-cap = cv2.VideoCapture("cars.mp4")
+cap = cv2.VideoCapture("media/cars.mp4")
 
 # 获取视频的宽度和高度
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
