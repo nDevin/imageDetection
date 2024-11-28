@@ -92,12 +92,17 @@ cd ImageDetection
 pip install ultralytics opencv-python imageio
 ```
 
-3. 运行检测脚本：
+3. 运行图像检测脚本：
+```bash
+python image.py
+```
+
+4. 运行视频检测脚本：
 ```bash
 python main.py
 ```
 
-4. 运行视频分析脚本
+5. 运行视频情绪分析脚本
 ```
 HF_ENDPOINT=https://hf-mirror.com python emotion.py
 ```
