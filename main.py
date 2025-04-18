@@ -1,8 +1,10 @@
 import cv2
 from ultralytics import YOLO
+import torch
+print(torch.cuda.is_available())  # 返回True表示PyTorch可以访问CUDA
 
 # 加载模型
-model = YOLO("models/yolo11s.pt")  # 或者使用 yolov8s.pt, yolov8m.pt 等
+model = YOLO("models/yolo11s.pt", verbose=False)  # 或者使用 yolov8s.pt, yolov8m.pt 等
 
 # 打开视频文件
 cap = cv2.VideoCapture("media/cars.mp4")
@@ -13,7 +15,7 @@ height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 # 创建视频写入对象
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('output.mp4', fourcc, 30.0, (width, height))
+out = cv2.VideoWriter('media/output.mp4', fourcc, 30.0, (width, height))
 
 # 循环处理视频的每一帧
 while cap.isOpened():
@@ -23,7 +25,7 @@ while cap.isOpened():
         break
 
     # 进行目标检测
-    results = model.predict(frame)
+    results = model.predict(frame, verbose=False)  # 添加verbose=False参数
 
     # 解析结果并绘制边界框和标签
     for result in results:
