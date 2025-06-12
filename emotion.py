@@ -9,7 +9,7 @@ from datetime import datetime
 from ultralytics import YOLO
 import ffmpeg
 import shutil
-import polib
+
 
 
 class EmotionDetector:
